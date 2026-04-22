@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GlobalX - Premium Live Currency Converter</title>
+    <meta name="description"
+        content="Fast, secure, and real-time live currency converter for enterprise and individual needs. Convert instantly with GlobalX.">
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <i class="ph ph-currency-circle-dollar"></i>
+                GlobalX
+            </a>
+            <ul class="nav-links">
+                <li><a href="#converter">Converter</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <a href="#" class="btn-primary nav-cta">Get Started</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Real-Time Currency Conversion at Scale</h1>
+            <p>Access mid-market rates for over 130 global currencies. Secure, incredibly fast, and designed for
+                professionals.</p>
+            <div class="header-badges">
+                <span class="badge"><i class="ph ph-check-circle"></i> Live API Updates</span>
+                <span class="badge"><i class="ph ph-shield-check"></i> Bank-Level Security</span>
+            </div>
+        </div>
+
+        <!-- Converter Widget -->
+        <div class="converter-widget" id="converter">
+            <div class="widget-header">
+                <h2>Live Exchange Rates</h2>
+                <div class="live-indicator">
+                    <span class="pulse-dot"></span> Live
+                </div>
+            </div>
+
+            <form id="converter-form">
+                <div class="form-group">
+                    <label for="amount">Amount</label>
+                    <div class="input-wrapper">
+                        <i class="ph ph-money"></i>
+                        <input type="number" id="amount" placeholder="0.00" value="1000" min="0" step="0.01" required>
+                    </div>
+                </div>
+
+                <div class="currency-selectors">
+                    <div class="form-group">
+                        <label for="from-currency">From</label>
+                        <select id="from-currency" class="currency-dropdown">
+                            <!-- Populated via JS -->
+                        </select>
+                    </div>
+
+                    <button type="button" class="swap-btn" id="swap-currencies" aria-label="Swap Currencies">
+                        <i class="ph ph-arrows-left-right"></i>
+                    </button>
+
+                    <div class="form-group">
+                        <label for="to-currency">To</label>
+                        <select id="to-currency" class="currency-dropdown">
+                            <!-- Populated via JS -->
+                        </select>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-primary w-full shadow-glow">Convert Now</button>
+            </form>
+
+            <div class="conversion-result" id="conversion-result" style="display: none;">
+                <p class="rate-info" id="rate-text">1 USD = 0.92 EUR</p>
+                <div class="result-amount" id="result-amount">920.00 <span class="result-currency">EUR</span></div>
+                <p class="timestamp" id="last-updated">Updated just now</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Logos Section -->
+    <section class="trusted-by">
+        <p>Trusted by innovative enterprises worldwide</p>
+        <div class="logo-grid">
+            <i class="ph ph-stripe-logo"></i>
+            <i class="ph ph-paypal-logo"></i>
+            <i class="ph ph-google-logo"></i>
+            <i class="ph ph-amazon-logo"></i>
+            <i class="ph ph-apple-logo"></i>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="section-title">
+            <h2>Why Choose GlobalX</h2>
+            <p>The standard for professional currency operations</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon"><i class="ph ph-lightning"></i></div>
+                <h3>Millisecond Latency</h3>
+                <p>Our distributed architecture ensures that exchange rates are delivered to you with virtually zero
+                    delay.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="ph ph-globe-hemisphere-west"></i></div>
+                <h3>130+ Currencies</h3>
+                <p>From major fiat currencies to emerging markets, access the global economy from a single interface.
+                </p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="ph ph-lock-key"></i></div>
+                <h3>Enterprise Security</h3>
+                <p>We use military-grade 256-bit encryption to protect your data and ensure safe transactions at all
+                    times.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Image Break -->
+    <section class="image-break">
+        <div class="image-container">
+            <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=2070&auto=format&fit=crop"
+                alt="Global finance dashboard" class="parallax-img">
+            <div class="image-overlay">
+                <h2>Empowering Global Commerce</h2>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq" id="faq">
+        <div class="section-title">
+            <h2>Frequently Asked Questions</h2>
+            <p>Everything you need to know about the product</p>
+        </div>
+        <div class="faq-container">
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Where do your exchange rates come from?</h3>
+                    <i class="ph ph-caret-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>We aggregate data from multiple commercial sources and banks to ensure our rates match the
+                        mid-market rate you would see on global exchanges like Reuters.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>How often are the rates updated?</h3>
+                    <i class="ph ph-caret-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Our rate engine updates every 60 seconds, ensuring you always have access to the most accurate
+                        real-time data for your conversions.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Is there an API available for developers?</h3>
+                    <i class="ph ph-caret-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes, we offer a robust REST API with SDKs available for Python, Node.js, Ruby, and Go. Visit our
+                        developer portal for documentation and API keys.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="contact-card">
+            <div class="contact-info">
+                <h2>Get in touch</h2>
+                <p>Our enterprise sales and support teams are available 24/7 to assist you.</p>
+
+                <div class="contact-method">
+                    <i class="ph ph-envelope-simple"></i>
+                    <span>support@globalx.enterprises</span>
+                </div>
+                <div class="contact-method">
+                    <i class="ph ph-phone"></i>
+                    <span>+1 (800) 123-4567</span>
+                </div>
+                <div class="contact-method">
+                    <i class="ph ph-map-pin"></i>
+                    <span>1 World Trade Center, NY</span>
+                </div>
+            </div>
+            <form class="contact-form">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" placeholder="John Doe">
+                </div>
+                <div class="form-group">
+                    <label for="email">Work Email</label>
+                    <input type="email" id="email" placeholder="john@company.com">
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" rows="4" placeholder="How can we help?"></textarea>
+                </div>
+                <button type="submit" class="btn-primary w-full">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Minimal Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <a href="#" class="logo">
+                    <i class="ph ph-currency-circle-dollar"></i>
+                    GlobalX
+                </a>
+                <p>&copy; 2026 GlobalX Enterprises. All rights reserved.</p>
+            </div>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Security Options</a>
+                <a href="#">System Status</a>
+            </div>
+            <div class="social-links">
+                <a href="#"><i class="ph ph-twitter-logo"></i></a>
+                <a href="#"><i class="ph ph-linkedin-logo"></i></a>
+                <a href="#"><i class="ph ph-github-logo"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
